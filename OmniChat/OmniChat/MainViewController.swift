@@ -63,15 +63,6 @@ import AudioKit
         if audioEngine.isRunning {
             recognitionRequest?.endAudio()
             recordButton.isEnabled = true
-//            do {
-//                try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayAndRecord)
-//                //TESTING NEXT TWO LINES
-//                try AVAudioSession.sharedInstance().setMode(AVAudioSessionModeMeasurement)
-//                try AVAudioSession.sharedInstance().setActive(true, with: .notifyOthersOnDeactivation)
-//            } catch {
-//                print(error)
-//            }
-            
         }
     }
     
@@ -374,15 +365,6 @@ import AudioKit
                 
                 self.recordButton.isEnabled = true
                 self.recordButton.setTitle("Start Recording", for: [])
-                
-//                do {
-//                    try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryRecord)
-//                    //TESTING NEXT TWO LINES
-//                    try AVAudioSession.sharedInstance().setMode(AVAudioSessionModeDefault)
-//                    try AVAudioSession.sharedInstance().setActive(true, with: .notifyOthersOnDeactivation)
-//                } catch {
-//                    print(error)
-//                }
             }
         }
         
@@ -392,7 +374,6 @@ import AudioKit
         }
         
         audioEngine.prepare()
-        
         try audioEngine.start()
     }
     
@@ -408,9 +389,7 @@ import AudioKit
             } else {
                 self.ref.child("connections").child(self.roomUid).child("transcription").child("callerDidTalk").child("callerLanguage").child(self.callerLanguage).child("receiverLanguage").child(self.receiverLanguage).child("text").child(self.callerLanguage).setValue(transcription)
             }
-            
         }
-            
         else if callerOrReceiver == "receiver" {
             if callerLanguage == "" {
                 self.ref.child("connections").child(self.roomUid).child("transcription").child("callerLanguage").observe(.value, with: { (snap) in
@@ -422,12 +401,10 @@ import AudioKit
             } else {
                 self.ref.child("connections").child(self.roomUid).child("transcription").child("receiverDidTalk").child("receiverLanguage").child(self.receiverLanguage).child("callerLanguage").child(self.callerLanguage).child("text").child(self.receiverLanguage).setValue(transcription)
             }
-            
         }
     }
     
     func speak(speechOutput: String, language: String) {
-        
         //Disable local audio track to ensure speech synthesis is not send to participant
         self.localAudioTrack?.isEnabled = false
         
@@ -444,15 +421,9 @@ import AudioKit
     }
     
     func prepareAudioSession() {
-        //self.audioEngine.stop()
         do {
-//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-//            try AVAudioSession.sharedInstance().setMode(AVAudioSessionModeMeasurement)
-//            try AVAudioSession.sharedInstance().setActive(true, with: .notifyOthersOnDeactivation)
-//            
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with:  AVAudioSessionCategoryOptions.defaultToSpeaker)
             try AVAudioSession.sharedInstance().setActive(true, with: .notifyOthersOnDeactivation)
-            
         }
         catch {
             print(error)
@@ -495,7 +466,6 @@ import AudioKit
         } else {
             // Add renderer to video track for local preview
             localVideoTrack!.addRenderer(self.previewView)
-            
             print("audio track created")
             
             // We will flip camera on tap.
@@ -513,12 +483,10 @@ import AudioKit
     }
     
     func prepareLocalMedia() {
-        
         // We will share local audio and video when we connect to the Room.
         // Create an audio track.
         if (localAudioTrack == nil) {
             localAudioTrack = TVILocalAudioTrack.init()
-            
             if (localAudioTrack == nil) {
                 print("failed to create audio track")
             }
@@ -558,7 +526,6 @@ import AudioKit
         
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let len = UInt32(letters.length)
-        
         var randomString = ""
         
         for _ in 0 ..< length {
@@ -649,7 +616,6 @@ extension MainViewController : TVIParticipantDelegate {
                 }
             })
         }
-        
     }
     
     func participant(_ participant: TVIParticipant, removedAudioTrack audioTrack: TVIAudioTrack) {

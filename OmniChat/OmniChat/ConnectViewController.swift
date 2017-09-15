@@ -6,6 +6,7 @@
 //  Copyright © 2017 Brice Maltby. All rights reserved.
 //
 
+/*
 import UIKit
 
 class ConnectViewController: UIViewController {
@@ -20,4 +21,4 @@ class ConnectViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-}
+}*/

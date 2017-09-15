@@ -18,8 +18,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var languagePicker: UIPickerView!
     
     let ref = Database.database().reference()
-    
-    
     let errorMessage = UIAlertController(title: "Error", message: "Please make sure email and password fields have been completed", preferredStyle: UIAlertControllerStyle.alert)
     
     @IBAction func createButtonAction(_ sender: Any) {
@@ -69,16 +67,4 @@ class SignUpViewController: UIViewController {
             self.phoneNumberField.resignFirstResponder()
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

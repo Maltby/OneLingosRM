@@ -19,11 +19,9 @@ class LoginViewController: UIViewController {
                 self.performSegue(withIdentifier: "createAccountToHome", sender: self)
             }
         }
-        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpViewController.dismissKeyboard))
         self.view.addGestureRecognizer(tap)
     }
@@ -35,6 +33,4 @@ class LoginViewController: UIViewController {
             self.passwordFeild.resignFirstResponder()
         }
     }
-    
-
 }

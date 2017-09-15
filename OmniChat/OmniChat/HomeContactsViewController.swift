@@ -14,10 +14,8 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     
     var contactsList = [CNContact.init()]
     var contactsWithProfileList = [CNContact.init()]
-    //var results = [CNContact.init()]
     var results = [CNContact]()
     var userPhoneNumber = String()
-    //var userPhoneNumber = String()
     
     var contactNameToMain = String()
     var contactPhoneToMain = String()
@@ -62,13 +60,10 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         self.getContacts()
-        
         callListener()
-        
         
         pickerView.dataSource = self
         pickerView.delegate = self
-        
         pickerView.backgroundColor = UIColor.white
         alertView.view.addSubview(pickerView)
         
@@ -79,8 +74,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
         })
         
         alertView.addAction(action)
-        
-        // Do any additional setup after loading the view.
     }
     
     
@@ -94,7 +87,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     
     func getContacts() {
         let store = CNContactStore()
-        
         if CNContactStore.authorizationStatus(for: .contacts) == .notDetermined {
             store.requestAccess(for: .contacts, completionHandler: { (authorized: Bool, error: Error?) -> Void in
                 if authorized {
@@ -108,11 +100,9 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     
     func retrieveContactsWithStore(store: CNContactStore) {
         do {
-            //let groups = try store.groups(matching: nil)
             let containerId = store.defaultContainerIdentifier()
             let predicate = CNContact.predicateForContactsInContainer(withIdentifier: containerId)
             let keysToFetch = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactEmailAddressesKey] as [Any]
-            
             let contacts = try store.unifiedContacts(matching: predicate, keysToFetch: keysToFetch as! [CNKeyDescriptor])
             self.contactsList = contacts
             
@@ -123,7 +113,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
                     self.contactsTableView.reloadData()
                 }
             }
-            
         } catch {
             print(error)
         }
@@ -131,7 +120,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     
     func getDBPhoneList(handler:@escaping (_ list:[String]) -> Void) {
         let ref = Database.database().reference()
-        
         ref.child("data").child("phoneNumbers").observe(.value, with: { (snapshot) in
             let count = Int(snapshot.childrenCount)
             var dbPhoneList = [String]()
@@ -139,7 +127,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
             for childSnap in snapshot.children.allObjects {
                 let snap = childSnap as! DataSnapshot
                 print(snap)
-                
                 dbPhoneList.append(snap.key)
                 
                 if dbPhoneList.count == count {
@@ -150,7 +137,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func findMatches(phoneContacts:[CNContact], contactStore:CNContactStore, list:[String]) -> [CNContact] {
-        
         let request = CNContactFetchRequest(keysToFetch: [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactEmailAddressesKey, CNContactPhoneNumbersKey] as [Any] as! [CNKeyDescriptor])
         
         do {
@@ -184,42 +170,32 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
                     ref.child("tokenCreator").child(self.roomUid).child("recipientToken").observe(.value, with: { (snap) in
                         if snap.exists() {
                             let receiverToken = snap.value
-                            
                             let incomingCallAlert = UIAlertController(title: "Call from", message: "contact", preferredStyle: UIAlertControllerStyle.alert)
-                            
                             incomingCallAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                                 print("Handle Ok logic here")
                                 self.callerOrReceiver = "receiver"
                                 self.receiverToken = receiverToken as! String
                                 self.receiverUidToMain = (Auth.auth().currentUser?.uid)!
-                                
                                 self.present(self.alertView, animated: true, completion: { _ in
                                     self.pickerView.frame.size.width = self.alertView.view.frame.size.width
                                     self.pickerView.reloadAllComponents()
                                 })
                             }))
-                            
                             incomingCallAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
                                 print("Handle Cancel Logic here")
                             }))
-                            
                             self.present(incomingCallAlert, animated: true, completion: nil)
                         }
-                        
                     })
                 }
             }, withCancel: { (err) in
                 return
             })
-            
         }
-        
     }
-    
     
     func stringToNumerals(stringPhone: String) -> String {
         var numerals = stringPhone.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
-        
         if numerals.hasPrefix("1") {
             numerals.remove(at: numerals.startIndex)
             return numerals
@@ -230,13 +206,10 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = contactsTableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
-        
         let contact = self.contactsWithProfileList[indexPath.row]
         let formatter = CNContactFormatter()
-        
         let contactName = formatter.string(from: contact)
         let contactPhone = contact.phoneNumbers.first?.value.stringValue
-        
         cell.textLabel?.text = contactName
         return cell
     }
@@ -247,18 +220,15 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("row selected")
-        
         let contact = self.contactsWithProfileList[indexPath.row]
         let formatter = CNContactFormatter()
         callerOrReceiver = "caller"
-        
         let contactName = formatter.string(from: contact)
         let contactPhoneString = contact.phoneNumbers.first?.value.stringValue
         self.contactPhoneNumerals = stringToNumerals(stringPhone: contactPhoneString!)
         
         self.contactNameToMain = String(describing: contactName)
         self.contactPhoneToMain = String(describing: contactPhoneNumerals)
-        
         self.present(self.alertView, animated: true, completion: { _ in
             self.pickerView.frame.size.width = self.alertView.view.frame.size.width
             self.pickerView.reloadAllComponents()
@@ -272,11 +242,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return availableLanguagesDict.keys.count
     }
-    /*
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        let attributedString = NSAttributedString(string: "some string", attributes: [NSForegroundColorAttributeName : UIColor.red])
-        return attributedString
-    }*/
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
@@ -287,10 +252,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
         let selectedRow = pickerView.selectedRow(inComponent: 0)
         let language = availableLanguagesArray[selectedRow]
         selectedLanguage = availableLanguagesDict[language]!
-        
-        
-//        let language = availableLanguagesArray[row]
-//        selectedLanguage = availableLanguagesDict[language]!
     }
     
     func languageWasSelected() {
@@ -301,7 +262,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
                 print(snap)
                 self.receiverUidToMain = snap.value as! String
                 print(self.receiverUidToMain)
-                
                 self.performSegue(withIdentifier: "homeContactToMain", sender: self)
                 
             }) { (err) in
@@ -329,7 +289,6 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
                     destinationViewController.localLanguage = selectedLanguage
                     destinationViewController.callerLanguage = selectedLanguage
                 }
-                
             }
         } else {
             if let destinationViewController = segue.destination as? MainViewController {

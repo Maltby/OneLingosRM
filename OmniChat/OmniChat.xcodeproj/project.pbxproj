@@ -23,7 +23,6 @@
 		276482D31F64ADE800742274 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276482D21F64ADE700742274 /* Media.xcassets */; };
 		2764830F1F64AEF000742274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2764830E1F64AEF000742274 /* Assets.xcassets */; };
 		27868AB11EF6F6F9002BBAAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */; };
-		27EDA9A31F174C6200F4EEA5 /* ExampleSpeechRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EDA9A21F174C6200F4EEA5 /* ExampleSpeechRecognizer.m */; };
 		27EDA9A51F1AEFFA00F4EEA5 /* audioTrackSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EDA9A41F1AEFFA00F4EEA5 /* audioTrackSingleton.swift */; };
 		27FA37331EF08F320092B8EA /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA37321EF08F320092B8EA /* Contact.swift */; };
 		27FF5BE31EFF98A7003F97B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27FF5BE21EFF98A7003F97B5 /* GoogleService-Info.plist */; };
@@ -72,9 +71,6 @@
 		276482D21F64ADE700742274 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		2764830E1F64AEF000742274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		27EDA9A01F174C6200F4EEA5 /* OmniChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmniChat-Bridging-Header.h"; sourceTree = "<group>"; };
-		27EDA9A11F174C6200F4EEA5 /* ExampleSpeechRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleSpeechRecognizer.h; sourceTree = "<group>"; };
-		27EDA9A21F174C6200F4EEA5 /* ExampleSpeechRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleSpeechRecognizer.m; sourceTree = "<group>"; };
 		27EDA9A41F1AEFFA00F4EEA5 /* audioTrackSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = audioTrackSingleton.swift; sourceTree = "<group>"; };
 		27FA37321EF08F320092B8EA /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		27FF5BE21EFF98A7003F97B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -154,9 +150,6 @@
 				27096D041EECB82700D1B54E /* HomeContactsViewController.swift */,
 				270D29E51EE268EF00FF08E5 /* MainViewController.swift */,
 				271A0B5F1EE6718D00614D18 /* ConnectViewController.swift */,
-				27EDA9A11F174C6200F4EEA5 /* ExampleSpeechRecognizer.h */,
-				27EDA9A21F174C6200F4EEA5 /* ExampleSpeechRecognizer.m */,
-				27EDA9A01F174C6200F4EEA5 /* OmniChat-Bridging-Header.h */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -515,7 +508,6 @@
 				27096D111EECF55900D1B54E /* main.swift in Sources */,
 				27EDA9A51F1AEFFA00F4EEA5 /* audioTrackSingleton.swift in Sources */,
 				27096D051EECB82700D1B54E /* HomeContactsViewController.swift in Sources */,
-				27EDA9A31F174C6200F4EEA5 /* ExampleSpeechRecognizer.m in Sources */,
 				270D29B21EE25DBA00FF08E5 /* AppDelegate.swift in Sources */,
 				270D29E61EE268EF00FF08E5 /* MainViewController.swift in Sources */,
 				271A0B601EE6718D00614D18 /* ConnectViewController.swift in Sources */,
@@ -686,7 +678,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NorthernAtlantic.OneLingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OmniChat/OmniChat-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -706,7 +697,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = NorthernAtlantic.OneLingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "OmniChat/OmniChat-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

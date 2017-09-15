@@ -13,12 +13,6 @@ const twilioApiSecret = '1z9TwLAihKUH5Gm4B6953bITeR1qyIZw';
 const request = require('request-promise');
 var callerOrReceiver = ''
 
-//admin.initializeApp(functions.config().firebase);
-
-//var db = admin.database();
-// List of output languages.
-//const LANGUAGES = ['en', 'es', 'de', 'fr', 'sv', 'ga', 'it', 'jp'];
-
 // Create an access token which we will sign and return to the client,
 // containing the grant we just created
 const token = new AccessToken(twilioAccountSid, twilioApiKey, twilioApiSecret);
@@ -94,7 +88,6 @@ exports.callerTranslate = functions.database.ref('/connections/{roomUid}/transcr
     const promises = [];
     const message = snapshot.val();
     message.toString()
-    //var messageRe = new RegExp(message, "g");
     message.replace(/ /g, "+")
     console.log('message:')
     console.log(message)
@@ -107,46 +100,12 @@ exports.callerTranslate = functions.database.ref('/connections/{roomUid}/transcr
         console.log('no translation required');
         return admin.database().ref(`/connections/${room}/transcription/callerDidTalk/callerLanguage/${fromLanguage}/receiverLanguage/${toLanguage}/translated/${toLanguage}`).set(encodedSnap);
     } else {
-
-        // const timestamp = admin.database.ServerValue.TIMESTAMP
-        // console.log('timestamp: ')
-        // console.log(timestamp)
-        // timestamp.ServerValue()
-        // console.log('timestamp: ')
-        // console.log(timestamp)
-
         console.log('promises.push(createTranslationPromise)');
-        //promises.push(createTranslationPromise(fromLanguage, toLanguage, encodedSnap, room, callerOrReceiver, timestamp));
         promises.push(createTranslationPromise(fromLanguage, toLanguage, encodedSnap, room, callerOrReceiver));
         console.log('Promise.all(promises)');
         console.log(Promise.all(promises));
         return Promise.all(promises);
     }
-
-
-  //var ref = db.ref("server/saving-data/fireblog/posts");
-  //var ref = functions.database
-/*
-  var receiverLanguageRef = functions.database.ref('connections').child(room).child('transcription/receiverDidTalk/receiverLanguage')
-  // Attach an asynchronous callback to read the data at our posts reference
-  ref.on("value", function(snapshot) {
-      console.log(snapshot);
-      console.log(snapshot.val());
-  }, function (errorObject) {
-      console.log("The read failed: " + errorObject.code);
-  });*/
-
-
-
-
-  // const promises = [];
-  // for (let i = 0; i < LANGUAGES.length; i++) {
-  //   var language = LANGUAGES[i];
-  //   if (language !== event.params.languageID) {
-  //     promises.push(createTranslationPromise(fromLanguage, toLanguage, snapshot));
-  //   }
-  // }
-  // return Promise.all(promises);
 });
 
 exports.receiverTranslate = functions.database.ref('/connections/{roomUid}/transcription/receiverDidTalk/receiverLanguage/{receiverLanguage}/callerLanguage/{callerLanguage}/text/{receiverLanguageTwo}').onWrite(event => {
@@ -160,7 +119,6 @@ exports.receiverTranslate = functions.database.ref('/connections/{roomUid}/trans
     const promises = [];
     const message = snapshot.val();
     message.toString()
-    //var messageRe = new RegExp(message, "g");
     message.replace(/ /g, "+")
     console.log('message:')
     console.log(message)
@@ -173,48 +131,11 @@ exports.receiverTranslate = functions.database.ref('/connections/{roomUid}/trans
         console.log('no translation required');
         return admin.database().ref(`/connections/${room}/transcription/receiverDidTalk/receiverLanguage/${fromLanguage}/callerLanguage/${toLanguage}/translated/${toLanguage}`).set(encodedSnap);
     } else {
-
-        // const timestamp = admin.database.ServerValue.TIMESTAMP
-        // console.log('timestamp: ')
-        // console.log(timestamp)
-        // timestamp.ServerValue()
-        // console.log('timestamp: ')
-        // console.log(timestamp)
-
         console.log('promises.push(createTranslationPromise)');
-        //promises.push(createTranslationPromise(fromLanguage, toLanguage, encodedSnap, room, callerOrReceiver, timestamp));
         promises.push(createTranslationPromise(fromLanguage, toLanguage, encodedSnap, room, callerOrReceiver));        console.log('Promise.all(promises)');
         console.log(Promise.all(promises));
         return Promise.all(promises);
     }
-
-
-
-  // console.log('createTranslationPromise')
-  // console.log('fromLanguage: ')
-  // console.log(fromLanguage)
-  // console.log('toLanguage: ')
-  // console.log(toLanguage)
-  // console.log('snapshot: ')
-  // console.log(snapshot)
-  // console.log('room: ')
-  // console.log(room)
-  // console.log('callerOrReceiver: ')
-  // console.log(callerOrReceiver)
-  // promises.push(createTranslationPromise(fromLanguage, toLanguage, snapshot, room, callerOrReceiver));
-  // console.log('Promise.all(promises): ');
-  // console.log(Promise.all(promises));
-  // return Promise.all(promises);
-
-
-  // const promises = [];
-  // for (let i = 0; i < LANGUAGES.length; i++) {
-  //   var language = LANGUAGES[i];
-  //   if (language !== event.params.languageID) {
-  //     promises.push(createTranslationPromise(fromLanguage, toLanguage, snapshot));
-  //   }
-  // }
-  // return Promise.all(promises);
 });
 
 // URL to the Google Translate API.
@@ -223,16 +144,6 @@ function createTranslateUrl(source, target, payload) {
 }
 
 function createTranslationPromise(source, target, encodedSnap, room, callerOrReceiver) {
-  //const key = snapshot.key;
-  // const message = snapshot.val();
-  // message.toString()
-  // //var messageRe = new RegExp(message, "g");
-  // message.replace(/ /g, "+")
-  // console.log('message:')
-  // console.log(message)
-
-
-  //const room = room
   return request(createTranslateUrl(source, target, encodedSnap), {resolveWithFullResponse: true}).then(
       response => {
         var sourceString = `${source}`
@@ -243,42 +154,15 @@ function createTranslationPromise(source, target, encodedSnap, room, callerOrRec
         if (response.statusCode === 200) {
             if (callerOrReceiver === 'caller') {
                 const data = JSON.parse(response.body).data;
-                //return admin.database().ref(`/connections/${room}/translation/callerDidTalk`).set(data.translations[0].translatedText);
-                // console.log(sourceString)
-                // console.log(targetString)
-                // console.log(message);
                 console.log(data.translations[0].translatedText);
-
-                //An old promise may return after the newest, causing the new, correct value to be replaced by an older translation. Add a timestamp and a check to ensure only the newest translation is pushed into the cloud
-                //const timestamp = admin.database.ServerValue.TIMESTAMP
-
                 return admin.database().ref(`/connections/${room}/transcription/receiverDidTalk/receiverLanguage/${sourceString}/callerLanguage/${targetString}/translated/${targetString}`).set(data.translations[0].translatedText);
-
-                //return ""
             } if (callerOrReceiver === 'receiver') {
                 const data = JSON.parse(response.body).data;
-                //return admin.database().ref(`/connections/${room}/translation/receiverDidTalk`).set(data.translations[0].translatedText);
-                // console.log(sourceString)
-                // console.log(targetString)
-                // console.log(message);
                 console.log(data.translations[0].translatedText);
-
-                //An old promise may return after the newest, causing the new, correct value to be replaced by an older translation. Add a timestamp and a check to ensure only the newest translation is pushed into the cloud
-                //const timestamp = admin.database.ServerValue.TIMESTAMP
-
                 return admin.database().ref(`/connections/${room}/transcription/callerDidTalk/callerLanguage/${sourceString}/receiverLanguage/${targetString}/translated/${targetString}`).set(data.translations[0].translatedText);
-
-                //return ""
             }
-
         }
         throw response.body;
-        // if (response.statusCode === 200) {
-        //   const data = JSON.parse(response.body).data;
-        //   return admin.database().ref(`/messages/${target}/${key}`)
-        //       .set({message: data.translations[0].translatedText, translated: true});
-        // }
-        // throw response.body;
       });
 }
 

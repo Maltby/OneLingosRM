@@ -1,0 +1,814 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		27096D051EECB82700D1B54E /* HomeContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27096D041EECB82700D1B54E /* HomeContactsViewController.swift */; };
+		27096D071EECD5BC00D1B54E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27096D061EECD5BC00D1B54E /* User.swift */; };
+		27096D0F1EECF4BC00D1B54E /* CallHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27096D0E1EECF4BC00D1B54E /* CallHandler.swift */; };
+		27096D111EECF55900D1B54E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27096D101EECF55900D1B54E /* main.swift */; };
+		270D29B21EE25DBA00FF08E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D29B11EE25DBA00FF08E5 /* AppDelegate.swift */; };
+		270D29B71EE25DBA00FF08E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270D29B51EE25DBA00FF08E5 /* Main.storyboard */; };
+		270D29BC1EE25DBB00FF08E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270D29BA1EE25DBB00FF08E5 /* LaunchScreen.storyboard */; };
+		270D29C71EE25DBB00FF08E5 /* OmniChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D29C61EE25DBB00FF08E5 /* OmniChatTests.swift */; };
+		270D29D21EE25DBB00FF08E5 /* OmniChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D29D11EE25DBB00FF08E5 /* OmniChatUITests.swift */; };
+		270D29E21EE263FB00FF08E5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D29E11EE263FB00FF08E5 /* SignUpViewController.swift */; };
+		270D29E61EE268EF00FF08E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D29E51EE268EF00FF08E5 /* MainViewController.swift */; };
+		271A0B601EE6718D00614D18 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A0B5F1EE6718D00614D18 /* ConnectViewController.swift */; };
+		271A0B621EE671EA00614D18 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A0B611EE671EA00614D18 /* Utils.swift */; };
+		276482D31F64ADE800742274 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276482D21F64ADE700742274 /* Media.xcassets */; };
+		2764830F1F64AEF000742274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2764830E1F64AEF000742274 /* Assets.xcassets */; };
+		27868AB11EF6F6F9002BBAAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */; };
+		27EDA9A31F174C6200F4EEA5 /* ExampleSpeechRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 27EDA9A21F174C6200F4EEA5 /* ExampleSpeechRecognizer.m */; };
+		27EDA9A51F1AEFFA00F4EEA5 /* audioTrackSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EDA9A41F1AEFFA00F4EEA5 /* audioTrackSingleton.swift */; };
+		27FA37331EF08F320092B8EA /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA37321EF08F320092B8EA /* Contact.swift */; };
+		27FF5BE31EFF98A7003F97B5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27FF5BE21EFF98A7003F97B5 /* GoogleService-Info.plist */; };
+		2D9E01D214A1E664AFCBF841 /* Pods_OmniChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA82D4FBCA488B3AE100226 /* Pods_OmniChatTests.framework */; };
+		C15BB9EFCD61017896B96B68 /* Pods_OmniChatUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3C99E52664122FC44A61708 /* Pods_OmniChatUITests.framework */; };
+		F4E4218AD73E18677460F21F /* Pods_OmniChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EB336FC60A70FBA21E66AC4 /* Pods_OmniChat.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		270D29C31EE25DBB00FF08E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 270D29A61EE25DBA00FF08E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 270D29AD1EE25DBA00FF08E5;
+			remoteInfo = OmniChat;
+		};
+		270D29CE1EE25DBB00FF08E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 270D29A61EE25DBA00FF08E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 270D29AD1EE25DBA00FF08E5;
+			remoteInfo = OmniChat;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		27096D041EECB82700D1B54E /* HomeContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeContactsViewController.swift; sourceTree = "<group>"; };
+		27096D061EECD5BC00D1B54E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		27096D0E1EECF4BC00D1B54E /* CallHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallHandler.swift; sourceTree = "<group>"; };
+		27096D101EECF55900D1B54E /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		270D29AE1EE25DBA00FF08E5 /* OmniChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		270D29B11EE25DBA00FF08E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		270D29B61EE25DBA00FF08E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		270D29BB1EE25DBB00FF08E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		270D29BD1EE25DBB00FF08E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		270D29C21EE25DBB00FF08E5 /* OmniChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		270D29C61EE25DBB00FF08E5 /* OmniChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniChatTests.swift; sourceTree = "<group>"; };
+		270D29C81EE25DBB00FF08E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		270D29CD1EE25DBB00FF08E5 /* OmniChatUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniChatUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		270D29D11EE25DBB00FF08E5 /* OmniChatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OmniChatUITests.swift; sourceTree = "<group>"; };
+		270D29D31EE25DBB00FF08E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		270D29E11EE263FB00FF08E5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		270D29E51EE268EF00FF08E5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		271A0B5F1EE6718D00614D18 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		271A0B611EE671EA00614D18 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		276482D21F64ADE700742274 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		2764830E1F64AEF000742274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		27EDA9A01F174C6200F4EEA5 /* OmniChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OmniChat-Bridging-Header.h"; sourceTree = "<group>"; };
+		27EDA9A11F174C6200F4EEA5 /* ExampleSpeechRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExampleSpeechRecognizer.h; sourceTree = "<group>"; };
+		27EDA9A21F174C6200F4EEA5 /* ExampleSpeechRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleSpeechRecognizer.m; sourceTree = "<group>"; };
+		27EDA9A41F1AEFFA00F4EEA5 /* audioTrackSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = audioTrackSingleton.swift; sourceTree = "<group>"; };
+		27FA37321EF08F320092B8EA /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		27FF5BE21EFF98A7003F97B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4EB336FC60A70FBA21E66AC4 /* Pods_OmniChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmniChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		624688C060C1CDFB93FE4A13 /* Pods-OmniChatTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniChatTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmniChatTests/Pods-OmniChatTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7311926A1B532128615D51EB /* Pods-OmniChatUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniChatUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmniChatUITests/Pods-OmniChatUITests.release.xcconfig"; sourceTree = "<group>"; };
+		89ACF86D3E354891E7601667 /* Pods-OmniChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmniChat/Pods-OmniChat.debug.xcconfig"; sourceTree = "<group>"; };
+		C3C99E52664122FC44A61708 /* Pods_OmniChatUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmniChatUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2567B3D3CDE20B01A0B03E9 /* Pods-OmniChatUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniChatUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmniChatUITests/Pods-OmniChatUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		DBA82D4FBCA488B3AE100226 /* Pods_OmniChatTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmniChatTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E137FB66394E5A72286D2F88 /* Pods-OmniChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmniChat/Pods-OmniChat.release.xcconfig"; sourceTree = "<group>"; };
+		FF64520504FF8616EADD1E2F /* Pods-OmniChatTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmniChatTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmniChatTests/Pods-OmniChatTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		270D29AB1EE25DBA00FF08E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F4E4218AD73E18677460F21F /* Pods_OmniChat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270D29BF1EE25DBB00FF08E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2D9E01D214A1E664AFCBF841 /* Pods_OmniChatTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270D29CA1EE25DBB00FF08E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C15BB9EFCD61017896B96B68 /* Pods_OmniChatUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1A486E99282E59712AF5E350 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				89ACF86D3E354891E7601667 /* Pods-OmniChat.debug.xcconfig */,
+				E137FB66394E5A72286D2F88 /* Pods-OmniChat.release.xcconfig */,
+				624688C060C1CDFB93FE4A13 /* Pods-OmniChatTests.debug.xcconfig */,
+				FF64520504FF8616EADD1E2F /* Pods-OmniChatTests.release.xcconfig */,
+				D2567B3D3CDE20B01A0B03E9 /* Pods-OmniChatUITests.debug.xcconfig */,
+				7311926A1B532128615D51EB /* Pods-OmniChatUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		27096D081EECDCA200D1B54E /* General */ = {
+			isa = PBXGroup;
+			children = (
+				276482D21F64ADE700742274 /* Media.xcassets */,
+				2764830E1F64AEF000742274 /* Assets.xcassets */,
+				27096D101EECF55900D1B54E /* main.swift */,
+				270D29B11EE25DBA00FF08E5 /* AppDelegate.swift */,
+				27096D0E1EECF4BC00D1B54E /* CallHandler.swift */,
+				271A0B611EE671EA00614D18 /* Utils.swift */,
+				270D29BD1EE25DBB00FF08E5 /* Info.plist */,
+				27FF5BE21EFF98A7003F97B5 /* GoogleService-Info.plist */,
+				27EDA9A41F1AEFFA00F4EEA5 /* audioTrackSingleton.swift */,
+			);
+			name = General;
+			sourceTree = "<group>";
+		};
+		27096D091EECDCAC00D1B54E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				270D29E11EE263FB00FF08E5 /* SignUpViewController.swift */,
+				27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */,
+				27096D041EECB82700D1B54E /* HomeContactsViewController.swift */,
+				270D29E51EE268EF00FF08E5 /* MainViewController.swift */,
+				271A0B5F1EE6718D00614D18 /* ConnectViewController.swift */,
+				27EDA9A11F174C6200F4EEA5 /* ExampleSpeechRecognizer.h */,
+				27EDA9A21F174C6200F4EEA5 /* ExampleSpeechRecognizer.m */,
+				27EDA9A01F174C6200F4EEA5 /* OmniChat-Bridging-Header.h */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		27096D0A1EECDCE600D1B54E /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				27096D061EECD5BC00D1B54E /* User.swift */,
+				27FA37321EF08F320092B8EA /* Contact.swift */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
+		27096D0B1EECDD0500D1B54E /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				270D29BA1EE25DBB00FF08E5 /* LaunchScreen.storyboard */,
+				270D29B51EE25DBA00FF08E5 /* Main.storyboard */,
+			);
+			name = StoryBoards;
+			sourceTree = "<group>";
+		};
+		270D29A51EE25DBA00FF08E5 = {
+			isa = PBXGroup;
+			children = (
+				270D29B01EE25DBA00FF08E5 /* OmniChat */,
+				270D29C51EE25DBB00FF08E5 /* OmniChatTests */,
+				270D29D01EE25DBB00FF08E5 /* OmniChatUITests */,
+				270D29AF1EE25DBA00FF08E5 /* Products */,
+				1A486E99282E59712AF5E350 /* Pods */,
+				556B0B4420DC083BF2459037 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		270D29AF1EE25DBA00FF08E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				270D29AE1EE25DBA00FF08E5 /* OmniChat.app */,
+				270D29C21EE25DBB00FF08E5 /* OmniChatTests.xctest */,
+				270D29CD1EE25DBB00FF08E5 /* OmniChatUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		270D29B01EE25DBA00FF08E5 /* OmniChat */ = {
+			isa = PBXGroup;
+			children = (
+				27096D081EECDCA200D1B54E /* General */,
+				27096D091EECDCAC00D1B54E /* ViewControllers */,
+				27096D0A1EECDCE600D1B54E /* Singletons */,
+				27096D0B1EECDD0500D1B54E /* StoryBoards */,
+			);
+			path = OmniChat;
+			sourceTree = "<group>";
+		};
+		270D29C51EE25DBB00FF08E5 /* OmniChatTests */ = {
+			isa = PBXGroup;
+			children = (
+				270D29C61EE25DBB00FF08E5 /* OmniChatTests.swift */,
+				270D29C81EE25DBB00FF08E5 /* Info.plist */,
+			);
+			path = OmniChatTests;
+			sourceTree = "<group>";
+		};
+		270D29D01EE25DBB00FF08E5 /* OmniChatUITests */ = {
+			isa = PBXGroup;
+			children = (
+				270D29D11EE25DBB00FF08E5 /* OmniChatUITests.swift */,
+				270D29D31EE25DBB00FF08E5 /* Info.plist */,
+			);
+			path = OmniChatUITests;
+			sourceTree = "<group>";
+		};
+		556B0B4420DC083BF2459037 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EB336FC60A70FBA21E66AC4 /* Pods_OmniChat.framework */,
+				DBA82D4FBCA488B3AE100226 /* Pods_OmniChatTests.framework */,
+				C3C99E52664122FC44A61708 /* Pods_OmniChatUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		270D29AD1EE25DBA00FF08E5 /* OmniChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270D29D61EE25DBB00FF08E5 /* Build configuration list for PBXNativeTarget "OmniChat" */;
+			buildPhases = (
+				C34481459FA568AD993E6E98 /* [CP] Check Pods Manifest.lock */,
+				270D29AA1EE25DBA00FF08E5 /* Sources */,
+				270D29AB1EE25DBA00FF08E5 /* Frameworks */,
+				270D29AC1EE25DBA00FF08E5 /* Resources */,
+				06C18F11F376660234A3FF59 /* [CP] Embed Pods Frameworks */,
+				37F6275C5730516688238D7E /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OmniChat;
+			productName = OmniChat;
+			productReference = 270D29AE1EE25DBA00FF08E5 /* OmniChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		270D29C11EE25DBB00FF08E5 /* OmniChatTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270D29D91EE25DBB00FF08E5 /* Build configuration list for PBXNativeTarget "OmniChatTests" */;
+			buildPhases = (
+				767205CA5F505B21B22D613B /* [CP] Check Pods Manifest.lock */,
+				270D29BE1EE25DBB00FF08E5 /* Sources */,
+				270D29BF1EE25DBB00FF08E5 /* Frameworks */,
+				270D29C01EE25DBB00FF08E5 /* Resources */,
+				1EC96C9BE55C6C9A3876270A /* [CP] Embed Pods Frameworks */,
+				E57A5726D57E00BE25B659A4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				270D29C41EE25DBB00FF08E5 /* PBXTargetDependency */,
+			);
+			name = OmniChatTests;
+			productName = OmniChatTests;
+			productReference = 270D29C21EE25DBB00FF08E5 /* OmniChatTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		270D29CC1EE25DBB00FF08E5 /* OmniChatUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270D29DC1EE25DBB00FF08E5 /* Build configuration list for PBXNativeTarget "OmniChatUITests" */;
+			buildPhases = (
+				C020AED1279EC6493CB93842 /* [CP] Check Pods Manifest.lock */,
+				270D29C91EE25DBB00FF08E5 /* Sources */,
+				270D29CA1EE25DBB00FF08E5 /* Frameworks */,
+				270D29CB1EE25DBB00FF08E5 /* Resources */,
+				DFB10FFA7EAB41A877975B12 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				270D29CF1EE25DBB00FF08E5 /* PBXTargetDependency */,
+			);
+			name = OmniChatUITests;
+			productName = OmniChatUITests;
+			productReference = 270D29CD1EE25DBB00FF08E5 /* OmniChatUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		270D29A61EE25DBA00FF08E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Brice Maltby";
+				TargetAttributes = {
+					270D29AD1EE25DBA00FF08E5 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = PNBCP72ZUX;
+						LastSwiftMigration = 0830;
+						ProvisioningStyle = Automatic;
+					};
+					270D29C11EE25DBB00FF08E5 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 270D29AD1EE25DBA00FF08E5;
+					};
+					270D29CC1EE25DBB00FF08E5 = {
+						CreatedOnToolsVersion = 8.3.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 270D29AD1EE25DBA00FF08E5;
+					};
+				};
+			};
+			buildConfigurationList = 270D29A91EE25DBA00FF08E5 /* Build configuration list for PBXProject "OmniChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 270D29A51EE25DBA00FF08E5;
+			productRefGroup = 270D29AF1EE25DBA00FF08E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				270D29AD1EE25DBA00FF08E5 /* OmniChat */,
+				270D29C11EE25DBB00FF08E5 /* OmniChatTests */,
+				270D29CC1EE25DBB00FF08E5 /* OmniChatUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		270D29AC1EE25DBA00FF08E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270D29BC1EE25DBB00FF08E5 /* LaunchScreen.storyboard in Resources */,
+				27FF5BE31EFF98A7003F97B5 /* GoogleService-Info.plist in Resources */,
+				276482D31F64ADE800742274 /* Media.xcassets in Resources */,
+				270D29B71EE25DBA00FF08E5 /* Main.storyboard in Resources */,
+				2764830F1F64AEF000742274 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270D29C01EE25DBB00FF08E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270D29CB1EE25DBB00FF08E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06C18F11F376660234A3FF59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmniChat/Pods-OmniChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1EC96C9BE55C6C9A3876270A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmniChatTests/Pods-OmniChatTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		37F6275C5730516688238D7E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmniChat/Pods-OmniChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		767205CA5F505B21B22D613B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C020AED1279EC6493CB93842 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C34481459FA568AD993E6E98 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DFB10FFA7EAB41A877975B12 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmniChatUITests/Pods-OmniChatUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E57A5726D57E00BE25B659A4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmniChatTests/Pods-OmniChatTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		270D29AA1EE25DBA00FF08E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271A0B621EE671EA00614D18 /* Utils.swift in Sources */,
+				270D29E21EE263FB00FF08E5 /* SignUpViewController.swift in Sources */,
+				27FA37331EF08F320092B8EA /* Contact.swift in Sources */,
+				27096D111EECF55900D1B54E /* main.swift in Sources */,
+				27EDA9A51F1AEFFA00F4EEA5 /* audioTrackSingleton.swift in Sources */,
+				27096D051EECB82700D1B54E /* HomeContactsViewController.swift in Sources */,
+				27EDA9A31F174C6200F4EEA5 /* ExampleSpeechRecognizer.m in Sources */,
+				270D29B21EE25DBA00FF08E5 /* AppDelegate.swift in Sources */,
+				270D29E61EE268EF00FF08E5 /* MainViewController.swift in Sources */,
+				271A0B601EE6718D00614D18 /* ConnectViewController.swift in Sources */,
+				27096D0F1EECF4BC00D1B54E /* CallHandler.swift in Sources */,
+				27096D071EECD5BC00D1B54E /* User.swift in Sources */,
+				27868AB11EF6F6F9002BBAAD /* LoginViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270D29BE1EE25DBB00FF08E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270D29C71EE25DBB00FF08E5 /* OmniChatTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270D29C91EE25DBB00FF08E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270D29D21EE25DBB00FF08E5 /* OmniChatUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		270D29C41EE25DBB00FF08E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 270D29AD1EE25DBA00FF08E5 /* OmniChat */;
+			targetProxy = 270D29C31EE25DBB00FF08E5 /* PBXContainerItemProxy */;
+		};
+		270D29CF1EE25DBB00FF08E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 270D29AD1EE25DBA00FF08E5 /* OmniChat */;
+			targetProxy = 270D29CE1EE25DBB00FF08E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		270D29B51EE25DBA00FF08E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				270D29B61EE25DBA00FF08E5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		270D29BA1EE25DBB00FF08E5 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				270D29BB1EE25DBB00FF08E5 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		270D29D41EE25DBB00FF08E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		270D29D51EE25DBB00FF08E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		270D29D71EE25DBB00FF08E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89ACF86D3E354891E7601667 /* Pods-OmniChat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconWhite;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = PNBCP72ZUX;
+				INFOPLIST_FILE = OmniChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NorthernAtlantic.OneLingo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OmniChat/OmniChat-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		270D29D81EE25DBB00FF08E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E137FB66394E5A72286D2F88 /* Pods-OmniChat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIconWhite;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = PNBCP72ZUX;
+				INFOPLIST_FILE = OmniChat/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NorthernAtlantic.OneLingo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OmniChat/OmniChat-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		270D29DA1EE25DBB00FF08E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 624688C060C1CDFB93FE4A13 /* Pods-OmniChatTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OmniChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NorthernAtlantic.OmniChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmniChat.app/OmniChat";
+			};
+			name = Debug;
+		};
+		270D29DB1EE25DBB00FF08E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF64520504FF8616EADD1E2F /* Pods-OmniChatTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = OmniChatTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NorthernAtlantic.OmniChatTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OmniChat.app/OmniChat";
+			};
+			name = Release;
+		};
+		270D29DD1EE25DBB00FF08E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2567B3D3CDE20B01A0B03E9 /* Pods-OmniChatUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = OmniChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NorthernAtlantic.OmniChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OmniChat;
+			};
+			name = Debug;
+		};
+		270D29DE1EE25DBB00FF08E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7311926A1B532128615D51EB /* Pods-OmniChatUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = OmniChatUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = NorthernAtlantic.OmniChatUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = OmniChat;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		270D29A91EE25DBA00FF08E5 /* Build configuration list for PBXProject "OmniChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270D29D41EE25DBB00FF08E5 /* Debug */,
+				270D29D51EE25DBB00FF08E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		270D29D61EE25DBB00FF08E5 /* Build configuration list for PBXNativeTarget "OmniChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270D29D71EE25DBB00FF08E5 /* Debug */,
+				270D29D81EE25DBB00FF08E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		270D29D91EE25DBB00FF08E5 /* Build configuration list for PBXNativeTarget "OmniChatTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270D29DA1EE25DBB00FF08E5 /* Debug */,
+				270D29DB1EE25DBB00FF08E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		270D29DC1EE25DBB00FF08E5 /* Build configuration list for PBXNativeTarget "OmniChatUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270D29DD1EE25DBB00FF08E5 /* Debug */,
+				270D29DE1EE25DBB00FF08E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 270D29A61EE25DBA00FF08E5 /* Project object */;
+}

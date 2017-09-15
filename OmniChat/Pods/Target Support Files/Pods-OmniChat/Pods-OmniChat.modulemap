@@ -1,0 +1,6 @@
+framework module Pods_OmniChat {
+  umbrella header "Pods-OmniChat-umbrella.h"
+
+  export *
+  module * { export * }
+}

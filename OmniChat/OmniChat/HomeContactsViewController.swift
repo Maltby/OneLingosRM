@@ -62,6 +62,8 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
         self.getContacts()
         callListener()
         
+        
+        
         pickerView.dataSource = self
         pickerView.delegate = self
         pickerView.backgroundColor = UIColor.white
@@ -69,13 +71,15 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
         
         let action = UIAlertAction(title: "Select", style: UIAlertActionStyle.default, handler:
         {(alert: UIAlertAction!) in
-            print("Foo")
+//            print("Foo")
             self.languageWasSelected()
         })
         
         alertView.addAction(action)
+        
+        let token = Messaging.messaging().fcmToken
+        print("FCM token: \(token ?? "")")
     }
-    
     
     func getUserPhoneNumber(handler:@escaping (_ userPhoneNumber:String?) -> Void ) {
         let dbRef = Database.database().reference()
@@ -108,7 +112,7 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
             
             getDBPhoneList() { (dbList) -> Void in
                 self.contactsWithProfileList = self.findMatches(phoneContacts: self.contactsList, contactStore: store, list: dbList)
-                print(self.contactsWithProfileList)
+//                print(self.contactsWithProfileList)
                 DispatchQueue.main.async {
                     self.contactsTableView.reloadData()
                 }
@@ -126,7 +130,7 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
             
             for childSnap in snapshot.children.allObjects {
                 let snap = childSnap as! DataSnapshot
-                print(snap)
+//                print(snap)
                 dbPhoneList.append(snap.key)
                 
                 if dbPhoneList.count == count {
@@ -172,7 +176,7 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
                             let receiverToken = snap.value
                             let incomingCallAlert = UIAlertController(title: "Call from", message: "contact", preferredStyle: UIAlertControllerStyle.alert)
                             incomingCallAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
-                                print("Handle Ok logic here")
+//                                print("Handle Ok logic here")
                                 self.callerOrReceiver = "receiver"
                                 self.receiverToken = receiverToken as! String
                                 self.receiverUidToMain = (Auth.auth().currentUser?.uid)!
@@ -182,7 +186,7 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
                                 })
                             }))
                             incomingCallAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-                                print("Handle Cancel Logic here")
+//                                print("Handle Cancel Logic here")
                             }))
                             self.present(incomingCallAlert, animated: true, completion: nil)
                         }
@@ -219,7 +223,7 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("row selected")
+//        print("row selected")
         let contact = self.contactsWithProfileList[indexPath.row]
         let formatter = CNContactFormatter()
         callerOrReceiver = "caller"
@@ -259,9 +263,9 @@ class HomeContactsViewController: UIViewController, UITableViewDelegate, UITable
             let ref = Database.database().reference()
             
             ref.child("data").child("phoneNumbers").child(contactPhoneNumerals).observeSingleEvent(of: .value, with: { (snap) in
-                print(snap)
+//                print(snap)
                 self.receiverUidToMain = snap.value as! String
-                print(self.receiverUidToMain)
+//                print(self.receiverUidToMain)
                 self.performSegue(withIdentifier: "homeContactToMain", sender: self)
                 
             }) { (err) in

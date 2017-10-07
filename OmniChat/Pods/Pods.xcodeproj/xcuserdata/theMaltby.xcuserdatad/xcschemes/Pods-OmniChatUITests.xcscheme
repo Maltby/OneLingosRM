@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CAEB1C656E589585A5BFA30E0BD762F4"
+               BlueprintIdentifier = "727E6E6496BEB755660E3E2E527CA40A"
                BuildableName = "Pods_OmniChatUITests.framework"
                BlueprintName = "Pods-OmniChatUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CAEB1C656E589585A5BFA30E0BD762F4"
+            BlueprintIdentifier = "727E6E6496BEB755660E3E2E527CA40A"
             BuildableName = "Pods_OmniChatUITests.framework"
             BlueprintName = "Pods-OmniChatUITests"
             ReferencedContainer = "container:Pods.xcodeproj">

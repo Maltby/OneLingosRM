@@ -1,4 +1,4 @@
-// Copyright 2016 Google Inc.
+// Copyright 2017 Google Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@ syntax = "proto3";
 package google.cloud.ml.v1beta1;
 
 import "google/api/annotations.proto";
+import "google/api/auth.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
@@ -27,7 +28,7 @@ option java_package = "com.google.cloud.ml.api.v1beta1";
 
 // Copyright 2016 Google Inc. All Rights Reserved.
 //
-// Proto file for the Machine Learning Service
+// Proto file for the Google Cloud Machine Learning Engine.
 // Describes the 'job service' to manage training and prediction jobs.
 
 
@@ -65,7 +66,9 @@ message TrainingInput {
   // generally have more memory and greater processing power than they do at
   // lower tiers. The number of training units charged per hour of processing
   // increases as tiers get more advanced. Refer to the
-  // [pricing guide](/ml/pricing) for more details.
+  // [pricing guide](/ml/pricing) for more details. Note that in addition to
+  // incurring costs, your use of training resources is constrained by the
+  // [quota policy](/ml/quota).
   enum ScaleTier {
     // A single worker instance. This tier is suitable for learning how to use
     // Cloud ML, and for experimenting with new models using small datasets.
@@ -77,12 +80,32 @@ message TrainingInput {
     // A large number of workers with many parameter servers.
     PREMIUM_1 = 3;
 
+    // A single worker instance [with a GPU](ml/docs/how-tos/using-gpus).
+    BASIC_GPU = 6;
+
     // The CUSTOM tier is not a set tier, but rather enables you to use your
-    // own cluster specification. When you use this tier, you must also set
-    // valid values for `worker_count` and `parameter_server_count`, and you can
-    // specify the type of virtual machines to use for the different types of
-    // workers by setting `master_type`, `worker_type`, and
-    // `parameter_server_type`.
+    // own cluster specification. When you use this tier, set values to
+    // configure your processing cluster according to these guidelines:
+    //
+    // *   You _must_ set `TrainingInput.masterType` to specify the type
+    //     of machine to use for your master node. This is the only required
+    //     setting.
+    //
+    // *   You _may_ set `TrainingInput.workerCount` to specify the number of
+    //     workers to use. If you specify one or more workers, you _must_ also
+    //     set `TrainingInput.workerType` to specify the type of machine to use
+    //     for your worker nodes.
+    //
+    // *   You _may_ set `TrainingInput.parameterServerCount` to specify the
+    //     number of parameter servers to use. If you specify one or more
+    //     parameter servers, you _must_ also set
+    //     `TrainingInput.parameterServerType` to specify the type of machine to
+    //     use for your parameter servers.
+    //
+    // Note that all of your workers must use the same machine type, which can
+    // be different from your parameter server type and master type. Your
+    // parameter servers must likewise use the same machine type, which can be
+    // different from your worker type and master type.
     CUSTOM = 5;
   }
 
@@ -116,26 +139,39 @@ message TrainingInput {
   //   <dt>complex_model_m</dt>
   //   <dd>
   //   A machine with roughly twice the number of cores and roughly double the
-  //   memory of `complex_model_s`.
+  //   memory of <code suppresswarning="true">complex_model_s</code>.
   //   </dd>
   //   <dt>complex_model_l</dt>
   //   <dd>
   //   A machine with roughly twice the number of cores and roughly double the
-  //   memory of `complex_model_m`.
+  //   memory of <code suppresswarning="true">complex_model_m</code>.
+  //   </dd>
+  //   <dt>standard_gpu</dt>
+  //   <dd>
+  //   A machine equivalent to <code suppresswarning="true">standard</code> that
+  //   also includes a
+  //   <a href="ml/docs/how-tos/using-gpus">
+  //   GPU that you can use in your trainer</a>.
+  //   </dd>
+  //   <dt>complex_model_m_gpu</dt>
+  //   <dd>
+  //   A machine equivalent to
+  //   <code suppresswarning="true">coplex_model_m</code> that also includes
+  //   four GPUs.
   //   </dd>
   // </dl>
   //
-  // This value can only be used when `ScaleTier` is set to `CUSTOM`.
+  // You must set this value when `scaleTier` is set to `CUSTOM`.
   string master_type = 2;
 
   // Optional. Specifies the type of virtual machine to use for your training
   // job's worker nodes.
   //
   // The supported values are the same as those described in the entry for
-  // `master_type`.
+  // `masterType`.
   //
-  // This value must be present when `scale_tier` is set to `CUSTOM` and
-  // `worker_count` is greater than zero.
+  // This value must be present when `scaleTier` is set to `CUSTOM` and
+  // `workerCount` is greater than zero.
   string worker_type = 3;
 
   // Optional. Specifies the type of virtual machine to use for your training
@@ -144,7 +180,7 @@ message TrainingInput {
   // The supported values are the same as those described in the entry for
   // `master_type`.
   //
-  // This value must be present when `scale_tier` is set to `CUSTOM` and
+  // This value must be present when `scaleTier` is set to `CUSTOM` and
   // `parameter_server_count` is greater than zero.
   string parameter_server_type = 4;
 
@@ -178,6 +214,16 @@ message TrainingInput {
 
   // Required. The Google Compute Engine region to run the training job in.
   string region = 14;
+
+  // Optional. A Google Cloud Storage path in which to store training outputs
+  // and other data needed for training. This path is passed to your TensorFlow
+  // program as the 'job_dir' command-line argument. The benefit of specifying
+  // this field is that Cloud ML validates the path for use in training.
+  string job_dir = 16;
+
+  // Optional. The Google Cloud ML runtime version to use for training.  If not
+  // set, Google Cloud ML will choose the latest stable version.
+  string runtime_version = 15;
 }
 
 // Represents a set of hyperparameters to optimize.
@@ -220,6 +266,13 @@ message HyperparameterSpec {
   //
   // Defaults to one.
   int32 max_parallel_trials = 4;
+
+  // Optional. The Tensorflow summary tag name to use for optimizing trials. For
+  // current versions of Tensorflow, this tag name should exactly match what is
+  // shown in Tensorboard, including all scopes.  For versions of Tensorflow
+  // prior to 0.12, this should be only the tag passed to tf.Summary.
+  // By default, "training/hptuning/metric" will be used.
+  string hyperparameter_metric_tag = 5;
 }
 
 // Represents a single hyperparameter to optimize.
@@ -326,13 +379,21 @@ message HyperparameterOutput {
   repeated HyperparameterMetric all_metrics = 4;
 }
 
-// Represents results of a training job.
+// Represents results of a training job. Output only.
 message TrainingOutput {
   // The number of hyperparameter tuning trials that completed successfully.
+  // Only set for hyperparameter tuning jobs.
   int64 completed_trial_count = 1;
 
   // Results for individual Hyperparameter trials.
+  // Only set for hyperparameter tuning jobs.
   repeated HyperparameterOutput trials = 2;
+
+  // The amount of ML units consumed by the job.
+  double consumed_ml_units = 3;
+
+  // Whether this job is a hyperparameter tuning job.
+  bool is_hyperparameter_tuning_job = 4;
 }
 
 // Represents input parameters for a prediction job.
@@ -358,15 +419,19 @@ message PredictionInput {
     // Use this field if you want to use the default version for the specified
     // model. The string must use the following format:
     //
-    // `"project/<var>[YOUR_PROJECT]</var>/models/<var>[YOUR_MODEL]</var>"`
+    // `"projects/<var>[YOUR_PROJECT]</var>/models/<var>[YOUR_MODEL]</var>"`
     string model_name = 1;
 
     // Use this field if you want to specify a version of the model to use. The
     // string is formatted the same way as `model_version`, with the addition
     // of the version information:
     //
-    // `"project/<var>[YOUR_PROJECT]</var>/models/<var>YOUR_MODEL/versions/<var>[YOUR_VERSION]</var>"`
+    // `"projects/<var>[YOUR_PROJECT]</var>/models/<var>YOUR_MODEL/versions/<var>[YOUR_VERSION]</var>"`
     string version_name = 2;
+
+    // Use this field if you want to specify a Google Cloud Storage path for
+    // the model to use.
+    string uri = 9;
   }
 
   // Required. The format of the input data files.
@@ -379,12 +444,19 @@ message PredictionInput {
   // Required. The output Google Cloud Storage location.
   string output_path = 5;
 
-  // Optional. The maximum amount of workers to be used for parallel processing.
-  // Defaults to 10.
+  // Optional. The maximum number of workers to be used for parallel processing.
+  // Defaults to 10 if not specified.
   int64 max_worker_count = 6;
 
   // Required. The Google Compute Engine region to run the prediction job in.
   string region = 7;
+
+  // Optional. The Google Cloud ML runtime version to use for this batch
+  // prediction. If not set, Google Cloud ML will pick the runtime version used
+  // during the CreateVersion request for this model version, or choose the
+  // latest stable version when model version information is not available
+  // such as when the model is specified by uri.
+  string runtime_version = 8;
 }
 
 // Represents results of a prediction job.
@@ -397,6 +469,9 @@ message PredictionOutput {
 
   // The number of data instances which resulted in errors.
   int64 error_count = 3;
+
+  // Node hours used by the batch prediction job.
+  double node_hours = 4;
 }
 
 // Represents a training or prediction job.

@@ -17,9 +17,11 @@ target 'OmniChat' do
     # Pods for testing
   end
 
-  pod ‘Firebase’
-  pod ‘Firebase/Database’
-  pod ‘Firebase/Auth’
+  pod 'Firebase'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
   pod 'TwilioVideo', '~> 1.2.0’
-  pod ‘AudioKit’
+  # pod 'FirebaseInstanceID', "2.0.0"
+  pod 'AudioKit'
 end

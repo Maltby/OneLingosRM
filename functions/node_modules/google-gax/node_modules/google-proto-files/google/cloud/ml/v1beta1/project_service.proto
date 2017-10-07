@@ -1,4 +1,4 @@
-// Copyright 2016 Google Inc.
+// Copyright 2017 Google Inc.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,6 +22,12 @@ option go_package = "google.golang.org/genproto/googleapis/cloud/ml/v1beta1;ml";
 option java_multiple_files = true;
 option java_outer_classname = "ProjectServiceProto";
 option java_package = "com.google.cloud.ml.api.v1beta1";
+
+// Copyright 2016 Google Inc. All Rights Reserved.
+//
+// Proto file for the Google Cloud Machine Learning Engine.
+// Describes the project management service.
+
 
 
 // Allows retrieving project related information.

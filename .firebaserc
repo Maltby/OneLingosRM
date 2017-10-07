@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "one-lingo"
+    "default": "one-lingo",
+    "onelingos-b38b4": "onelingos-b38b4"
   }
 }

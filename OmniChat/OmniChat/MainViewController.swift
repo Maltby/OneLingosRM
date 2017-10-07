@@ -106,7 +106,7 @@ import AudioKit
             print("not caller nor receiver")
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.appWillResignActive), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
+        //NotificationCenter.default.addObserver(self, selector: #selector(self.appWillResignActive), name: NSNotification.Name.UIApplicationWillResignActive, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.appWillTerminate), name: NSNotification.Name.UIApplicationWillTerminate, object: nil)
         
         speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: localLanguage))!
@@ -138,6 +138,7 @@ import AudioKit
         }
     }
     
+    /*
     func appWillResignActive(_ note: Notification) {
         print("disconnecting from call")
         self.room!.disconnect()
@@ -157,7 +158,7 @@ import AudioKit
         
         ref.child("listener").child((Auth.auth().currentUser?.uid)!).removeValue()
         print("Disconnected")
-    }
+    }*/
     
     func appWillTerminate(_ note: Notification) {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIApplicationWillResignActive, object: nil)

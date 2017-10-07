@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4DE2AAFF038584198C9016D03010E533"
+               BlueprintIdentifier = "45141200F1CE8CDC0A25419CD39500BB"
                BuildableName = "Pods_OmniChat.framework"
                BlueprintName = "Pods-OmniChat"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "4DE2AAFF038584198C9016D03010E533"
+            BlueprintIdentifier = "45141200F1CE8CDC0A25419CD39500BB"
             BuildableName = "Pods_OmniChat.framework"
             BlueprintName = "Pods-OmniChat"
             ReferencedContainer = "container:Pods.xcodeproj">

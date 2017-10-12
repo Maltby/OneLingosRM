@@ -17,8 +17,12 @@
 		270D29D21EE25DBB00FF08E5 /* OmniChatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D29D11EE25DBB00FF08E5 /* OmniChatUITests.swift */; };
 		270D29E21EE263FB00FF08E5 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D29E11EE263FB00FF08E5 /* SignUpViewController.swift */; };
 		270D29E61EE268EF00FF08E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270D29E51EE268EF00FF08E5 /* MainViewController.swift */; };
-		271A0B601EE6718D00614D18 /* ConnectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A0B5F1EE6718D00614D18 /* ConnectViewController.swift */; };
+		2714FD591F8A843800E30CCF /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2714FD581F8A843800E30CCF /* ConversationViewController.swift */; };
+		2714FD5B1F8A905E00E30CCF /* LanguageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2714FD5A1F8A905E00E30CCF /* LanguageSelectionViewController.swift */; };
+		2714FD5D1F8BD0B500E30CCF /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2714FD5C1F8BD0B500E30CCF /* Message.swift */; };
+		2714FD601F8C022D00E30CCF /* ConversationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2714FD5F1F8C022D00E30CCF /* ConversationCollectionViewCell.swift */; };
 		271A0B621EE671EA00614D18 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A0B611EE671EA00614D18 /* Utils.swift */; };
+		27438BC21F901D490038CAB3 /* OriginalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27438BC11F901D490038CAB3 /* OriginalViewController.swift */; };
 		276482D31F64ADE800742274 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276482D21F64ADE700742274 /* Media.xcassets */; };
 		2764830F1F64AEF000742274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2764830E1F64AEF000742274 /* Assets.xcassets */; };
 		27868AB11EF6F6F9002BBAAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */; };
@@ -64,8 +68,12 @@
 		270D29D31EE25DBB00FF08E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		270D29E11EE263FB00FF08E5 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		270D29E51EE268EF00FF08E5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		271A0B5F1EE6718D00614D18 /* ConnectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectViewController.swift; sourceTree = "<group>"; };
+		2714FD581F8A843800E30CCF /* ConversationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
+		2714FD5A1F8A905E00E30CCF /* LanguageSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageSelectionViewController.swift; sourceTree = "<group>"; };
+		2714FD5C1F8BD0B500E30CCF /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2714FD5F1F8C022D00E30CCF /* ConversationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCollectionViewCell.swift; sourceTree = "<group>"; };
 		271A0B611EE671EA00614D18 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		27438BC11F901D490038CAB3 /* OriginalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalViewController.swift; sourceTree = "<group>"; };
 		276482D21F64ADE700742274 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		2764830E1F64AEF000742274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		277160B31F8724D100D4DD0C /* OmniChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmniChat.entitlements; sourceTree = "<group>"; };
@@ -144,21 +152,24 @@
 			isa = PBXGroup;
 			children = (
 				270D29E11EE263FB00FF08E5 /* SignUpViewController.swift */,
+				27438BC11F901D490038CAB3 /* OriginalViewController.swift */,
 				27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */,
+				2714FD5A1F8A905E00E30CCF /* LanguageSelectionViewController.swift */,
+				2714FD581F8A843800E30CCF /* ConversationViewController.swift */,
 				27096D041EECB82700D1B54E /* HomeContactsViewController.swift */,
 				270D29E51EE268EF00FF08E5 /* MainViewController.swift */,
-				271A0B5F1EE6718D00614D18 /* ConnectViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		27096D0A1EECDCE600D1B54E /* Singletons */ = {
+		27096D0A1EECDCE600D1B54E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				27096D061EECD5BC00D1B54E /* User.swift */,
+				2714FD5C1F8BD0B500E30CCF /* Message.swift */,
 				27FA37321EF08F320092B8EA /* Contact.swift */,
 			);
-			name = Singletons;
+			name = Classes;
 			sourceTree = "<group>";
 		};
 		27096D0B1EECDD0500D1B54E /* StoryBoards */ = {
@@ -198,7 +209,8 @@
 				277160B31F8724D100D4DD0C /* OmniChat.entitlements */,
 				27096D081EECDCA200D1B54E /* General */,
 				27096D091EECDCAC00D1B54E /* ViewControllers */,
-				27096D0A1EECDCE600D1B54E /* Singletons */,
+				2714FD5E1F8C021200E30CCF /* Cells */,
+				27096D0A1EECDCE600D1B54E /* Classes */,
 				27096D0B1EECDD0500D1B54E /* StoryBoards */,
 			);
 			path = OmniChat;
@@ -220,6 +232,14 @@
 				270D29D31EE25DBB00FF08E5 /* Info.plist */,
 			);
 			path = OmniChatUITests;
+			sourceTree = "<group>";
+		};
+		2714FD5E1F8C021200E30CCF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2714FD5F1F8C022D00E30CCF /* ConversationCollectionViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		556B0B4420DC083BF2459037 /* Frameworks */ = {
@@ -553,13 +573,17 @@
 			files = (
 				271A0B621EE671EA00614D18 /* Utils.swift in Sources */,
 				270D29E21EE263FB00FF08E5 /* SignUpViewController.swift in Sources */,
+				2714FD591F8A843800E30CCF /* ConversationViewController.swift in Sources */,
 				27FA37331EF08F320092B8EA /* Contact.swift in Sources */,
 				27EDA9A51F1AEFFA00F4EEA5 /* audioTrackSingleton.swift in Sources */,
+				2714FD5B1F8A905E00E30CCF /* LanguageSelectionViewController.swift in Sources */,
 				27096D051EECB82700D1B54E /* HomeContactsViewController.swift in Sources */,
+				27438BC21F901D490038CAB3 /* OriginalViewController.swift in Sources */,
 				270D29B21EE25DBA00FF08E5 /* AppDelegate.swift in Sources */,
 				270D29E61EE268EF00FF08E5 /* MainViewController.swift in Sources */,
-				271A0B601EE6718D00614D18 /* ConnectViewController.swift in Sources */,
+				2714FD5D1F8BD0B500E30CCF /* Message.swift in Sources */,
 				27096D0F1EECF4BC00D1B54E /* CallHandler.swift in Sources */,
+				2714FD601F8C022D00E30CCF /* ConversationCollectionViewCell.swift in Sources */,
 				27096D071EECD5BC00D1B54E /* User.swift in Sources */,
 				27868AB11EF6F6F9002BBAAD /* LoginViewController.swift in Sources */,
 			);

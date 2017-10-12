@@ -138,6 +138,57 @@ exports.receiverTranslate = functions.database.ref('/connections/{roomUid}/trans
     }
 });
 
+exports.conversationTranslate = functions.database.ref('/conversations/{conversationUUID}/inputText/{messageCount}/{inputLanguage}/{outputLanguage}/text').onWrite(event => {
+    const snapshot = event.data;
+    var conversationUUID = event.params.conversationUUID;
+
+    var inputLanguage = event.params.inputLanguage;
+    var outputLanguage = event.params.outputLanguage;
+    var messageCount = event.params.messageCount;
+
+    const promises = [];
+    const text = snapshot.val();
+    text.toString()
+    text.replace(/ /g, "+")
+    console.log('text:')
+    console.log(text)
+
+    const encodedSnap = utf8.encode(text);
+    console.log('encoded snapshot');
+    console.log(encodedSnap);
+
+    if (inputLanguage == outputLanguage) {
+        console.log('no translation required');
+        return admin.database().ref(`/conversations/${conversationUUID}/outputText/${messageCount}/${outputLanguage}/text`).set(encodedSnap);
+    } else {
+        console.log('promises.push(createConversationTranslationPromise)');
+        promises.push(createConversationTranslationPromise(inputLanguage, outputLanguage, encodedSnap, conversationUUID, messageCount));
+        console.log('Promise.all(promises)');
+        console.log(Promise.all(promises));
+        return Promise.all(promises);
+    }
+});
+
+
+exports.pushCallNotificaiton = functions.database.ref('/users/{userUid}/notificationIsPresent').onWrite(event => {
+    const snapshot = event.data;
+    const text = snapshot.val();
+    var userUid = event.params.userUid;
+
+    ref.child("users").child(receiverUid).child("notificationIsPresent").setValue(true)
+
+    if (inputLanguage == outputLanguage) {
+        console.log('no translation required');
+        return admin.database().ref(`/conversations/${conversationUUID}/outputText/${messageCount}/${outputLanguage}/text`).set(encodedSnap);
+    } else {
+        console.log('promises.push(createConversationTranslationPromise)');
+        promises.push(createConversationTranslationPromise(inputLanguage, outputLanguage, encodedSnap, conversationUUID, messageCount));
+        console.log('Promise.all(promises)');
+        console.log(Promise.all(promises));
+        return Promise.all(promises);
+    }
+});
+
 // URL to the Google Translate API.
 function createTranslateUrl(source, target, payload) {
   return `https://www.googleapis.com/language/translate/v2?key=${functions.config().firebase.apiKey}&source=${source}&target=${target}&q=${payload}`;
@@ -161,6 +212,24 @@ function createTranslationPromise(source, target, encodedSnap, room, callerOrRec
                 console.log(data.translations[0].translatedText);
                 return admin.database().ref(`/connections/${room}/transcription/callerDidTalk/callerLanguage/${sourceString}/receiverLanguage/${targetString}/translated/${targetString}`).set(data.translations[0].translatedText);
             }
+        }
+        throw response.body;
+      });
+}
+
+function createConversationTranslationPromise(source, target, encodedSnap, conversationUUID, messageCount) {
+  return request(createTranslateUrl(source, target, encodedSnap), {resolveWithFullResponse: true}).then(
+      response => {
+        var sourceString = `${source}`
+        var targetString = `${target}`
+        console.log(sourceString)
+        console.log(targetString)
+        console.log(encodedSnap);
+        if (response.statusCode === 200) {
+
+            const data = JSON.parse(response.body).data;
+            console.log(data.translations[0].translatedText);
+            return admin.database().ref(`/conversations/${conversationUUID}/outputText/${messageCount}/${target}/text`).set(data.translations[0].translatedText);
         }
         throw response.body;
       });

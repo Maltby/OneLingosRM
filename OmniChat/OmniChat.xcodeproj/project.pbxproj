@@ -23,10 +23,12 @@
 		2714FD601F8C022D00E30CCF /* ConversationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2714FD5F1F8C022D00E30CCF /* ConversationCollectionViewCell.swift */; };
 		271A0B621EE671EA00614D18 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271A0B611EE671EA00614D18 /* Utils.swift */; };
 		27438BC21F901D490038CAB3 /* OriginalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27438BC11F901D490038CAB3 /* OriginalViewController.swift */; };
+		2760F3D31F91B77F003E5EE5 /* InPatientNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2760F3D21F91B77F003E5EE5 /* InPatientNavigationController.swift */; };
 		276482D31F64ADE800742274 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 276482D21F64ADE700742274 /* Media.xcassets */; };
 		2764830F1F64AEF000742274 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2764830E1F64AEF000742274 /* Assets.xcassets */; };
 		27868AB11EF6F6F9002BBAAD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */; };
 		27AB80471F870CB300E412A2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27AB80461F870CAB00E412A2 /* GoogleService-Info.plist */; };
+		27DDABF01F92A543006EEDF5 /* ringtone.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 27DDABEF1F92A510006EEDF5 /* ringtone.mp3 */; };
 		27EDA9A51F1AEFFA00F4EEA5 /* audioTrackSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EDA9A41F1AEFFA00F4EEA5 /* audioTrackSingleton.swift */; };
 		27FA37331EF08F320092B8EA /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FA37321EF08F320092B8EA /* Contact.swift */; };
 		D47D39A61A5283E575704458 /* Pods_OmniChatTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 753DBE882219E2F554EE289E /* Pods_OmniChatTests.framework */; };
@@ -74,11 +76,13 @@
 		2714FD5F1F8C022D00E30CCF /* ConversationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationCollectionViewCell.swift; sourceTree = "<group>"; };
 		271A0B611EE671EA00614D18 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		27438BC11F901D490038CAB3 /* OriginalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalViewController.swift; sourceTree = "<group>"; };
+		2760F3D21F91B77F003E5EE5 /* InPatientNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InPatientNavigationController.swift; sourceTree = "<group>"; };
 		276482D21F64ADE700742274 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		2764830E1F64AEF000742274 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		277160B31F8724D100D4DD0C /* OmniChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OmniChat.entitlements; sourceTree = "<group>"; };
 		27868AB01EF6F6F9002BBAAD /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		27AB80461F870CAB00E412A2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		27DDABEF1F92A510006EEDF5 /* ringtone.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringtone.mp3; sourceTree = "<group>"; };
 		27EDA9A41F1AEFFA00F4EEA5 /* audioTrackSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = audioTrackSingleton.swift; sourceTree = "<group>"; };
 		27FA37321EF08F320092B8EA /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		4EB336FC60A70FBA21E66AC4 /* Pods_OmniChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OmniChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +142,7 @@
 			children = (
 				276482D21F64ADE700742274 /* Media.xcassets */,
 				2764830E1F64AEF000742274 /* Assets.xcassets */,
+				27DDABEF1F92A510006EEDF5 /* ringtone.mp3 */,
 				270D29B11EE25DBA00FF08E5 /* AppDelegate.swift */,
 				27096D0E1EECF4BC00D1B54E /* CallHandler.swift */,
 				271A0B611EE671EA00614D18 /* Utils.swift */,
@@ -211,6 +216,7 @@
 				27096D091EECDCAC00D1B54E /* ViewControllers */,
 				2714FD5E1F8C021200E30CCF /* Cells */,
 				27096D0A1EECDCE600D1B54E /* Classes */,
+				2760F3D01F91B72E003E5EE5 /* Navigation Controllers */,
 				27096D0B1EECDD0500D1B54E /* StoryBoards */,
 			);
 			path = OmniChat;
@@ -242,6 +248,14 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		2760F3D01F91B72E003E5EE5 /* Navigation Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2760F3D21F91B77F003E5EE5 /* InPatientNavigationController.swift */,
+			);
+			name = "Navigation Controllers";
+			sourceTree = "<group>";
+		};
 		556B0B4420DC083BF2459037 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +279,7 @@
 				270D29AC1EE25DBA00FF08E5 /* Resources */,
 				06C18F11F376660234A3FF59 /* [CP] Embed Pods Frameworks */,
 				37F6275C5730516688238D7E /* [CP] Copy Pods Resources */,
+				276626021F92896D009F3943 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -378,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27DDABF01F92A543006EEDF5 /* ringtone.mp3 in Resources */,
 				270D29BC1EE25DBB00FF08E5 /* LaunchScreen.storyboard in Resources */,
 				276482D31F64ADE800742274 /* Media.xcassets in Resources */,
 				27AB80471F870CB300E412A2 /* GoogleService-Info.plist in Resources */,
@@ -449,6 +465,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OmniChatTests/Pods-OmniChatTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		276626021F92896D009F3943 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$BUILT_PRODUCTS_DIR/$FRAMEWORKS_FOLDER_PATH/AudioKit.framework/fix-framework.sh ";
 		};
 		37F6275C5730516688238D7E /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -585,6 +614,7 @@
 				27096D0F1EECF4BC00D1B54E /* CallHandler.swift in Sources */,
 				2714FD601F8C022D00E30CCF /* ConversationCollectionViewCell.swift in Sources */,
 				27096D071EECD5BC00D1B54E /* User.swift in Sources */,
+				2760F3D31F91B77F003E5EE5 /* InPatientNavigationController.swift in Sources */,
 				27868AB11EF6F6F9002BBAAD /* LoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,6 +785,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -776,6 +807,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = RobinsonAndMaltby.OneLingo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

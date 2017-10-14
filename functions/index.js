@@ -169,25 +169,47 @@ exports.conversationTranslate = functions.database.ref('/conversations/{conversa
     }
 });
 
+exports.sendNotification = functions.database.ref('/notifications/messages/{pushId}')
+    .onWrite(event => {
+        const call = event.data.current.val();
+        const callerEmail = call.callerEmail;
+        const receiverUid = call.receiverUid;
+        const promises = [];
 
-exports.pushCallNotificaiton = functions.database.ref('/users/{userUid}/notificationIsPresent').onWrite(event => {
-    const snapshot = event.data;
-    const text = snapshot.val();
-    var userUid = event.params.userUid;
+        const getReceiverFCM = admin.database().ref(`/users/${receiverUid}/fcm`).once('value');
+        console.log("receiverUid:", receiverUid);
 
-    ref.child("users").child(receiverUid).child("notificationIsPresent").setValue(true)
+        return Promise.all([getReceiverFCM]).then(results => {
+            const receiverFCM = results[0].val();
+            console.log("FCM:", receiverFCM);
 
-    if (inputLanguage == outputLanguage) {
-        console.log('no translation required');
-        return admin.database().ref(`/conversations/${conversationUUID}/outputText/${messageCount}/${outputLanguage}/text`).set(encodedSnap);
-    } else {
-        console.log('promises.push(createConversationTranslationPromise)');
-        promises.push(createConversationTranslationPromise(inputLanguage, outputLanguage, encodedSnap, conversationUUID, messageCount));
-        console.log('Promise.all(promises)');
-        console.log(Promise.all(promises));
-        return Promise.all(promises);
-    }
-});
+            const payload = {
+                "notification" : {
+                    "body" : callerEmail,
+                    "title" : "Incoming call from ",
+                    "sound" : "ringtone.mp3",
+                    "click_action" : "CALL"
+                }
+            };
+
+            // const payload = {
+            //     notification: {
+            //         title: "Call from: ",
+            //         body: callerEmail
+            //         // sound: "default"
+            //     }
+            //     // priority: "high"
+            // };
+
+            admin.messaging().sendToDevice(receiverFCM, payload)
+                .then(function (response) {
+                    console.log("Successfully sent message:", response);
+                })
+                .catch(function (error) {
+                    console.log("Error sending message:", error);
+                });
+        });
+    });
 
 // URL to the Google Translate API.
 function createTranslateUrl(source, target, payload) {
